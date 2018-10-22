@@ -29,7 +29,7 @@ app.post('/api', function (req, res) {
     ],
     json: [
       {
-        "token": BOT_USER_OAUTH_ACCESS_TOKEN,
+        "token": ENV['BOT_USER_OAUTH_ACCESS_TOKEN'],
         "channel": body.event.channel,
         "text": body.event.text
       }
@@ -38,6 +38,7 @@ app.post('/api', function (req, res) {
   res.end();
   request.post(options, function (error, response, body) {
     console.log(body);
+    console.log(BOT_USER_OAUTH_ACCESS_TOKEN);
   });
 })
 
