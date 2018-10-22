@@ -1,4 +1,5 @@
 'use strict';
+const request = require('request');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -19,12 +20,21 @@ app.get('/api', function(req, res){
 app.post('/api', function(req, res){
   let body = req.body;
   console.log(body);
-  let resObj = {
-    token: BOT_USER_OAUTH_ACCESS_TOKEN,
-    channel: body.event.channel,
-    text: body.event.text
+  let options = {
+    url: 'https://slack.com/api/chat.postMessage',
+    headers: {
+      "Content-type": "application/json"
+    },
+    json: {
+      token: BOT_USER_OAUTH_ACCESS_TOKEN,
+      channel: body.event.channel,
+      text: body.event.text
+    }
   };
-  res.status(200).json(resObj).end();
+  res.end();
+  request.post(options, function(error, response, body){
+    console.log(response);
+  });
 })
 
 app.listen(app.get('port'), function(){
