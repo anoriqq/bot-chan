@@ -7,6 +7,7 @@ const server = http.createServer((req, res) => {
       body += chunk;
     });
     req.on('end', () => {
+      console.log(body);
       res.writeHead(200, {
         'Content-Type': 'text/plain'
       });
