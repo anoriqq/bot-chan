@@ -29,7 +29,7 @@ app.post('/api', function (req, res) {
     ],
     json: [
       {
-        "token": ENV['BOT_USER_OAUTH_ACCESS_TOKEN'],
+        "token": BOT_USER_OAUTH_ACCESS_TOKEN,
         "channel": body.event.channel,
         "text": body.event.text
       }
