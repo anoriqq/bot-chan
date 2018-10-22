@@ -22,6 +22,7 @@ app.post('/api', function (req, res) {
   console.log(body);
   let options = {
     url: 'https://slack.com/api/chat.postMessage',
+    token: BOT_USER_OAUTH_ACCESS_TOKEN,
     headers: [
       {
         "Content-type": "application/json"
@@ -29,17 +30,16 @@ app.post('/api', function (req, res) {
     ],
     json: [
       {
-        "token": BOT_USER_OAUTH_ACCESS_TOKEN,
         "channel": body.event.channel,
         "text": body.event.text
       }
     ]
   };
-  res.end();
+  console.log(options);
   request.post(options, function (error, response, body) {
     console.log(body);
-    console.log(BOT_USER_OAUTH_ACCESS_TOKEN);
   });
+  res.end();
 })
 
 app.listen(app.get('port'), function () {
