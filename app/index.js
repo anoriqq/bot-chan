@@ -43,7 +43,7 @@ app.post('/api', function (req, res) {
       'Content-Type': 'application/json'
     }
   };
-  let req = http.request(options, (res) => {
+  let reqe = http.request(options, (res) => {
     console.log('STATUS: ' + res.statusCode);
     console.log('HEADERS: ' + JSON.stringify(res.headers));
     res.setEncoding('utf8');
@@ -51,10 +51,10 @@ app.post('/api', function (req, res) {
       console.log('BODY: ' + chunk);
     });
   });
-  req.on('error', (e) => {
+  reqe.on('error', (e) => {
     console.log('problem with request: ' + e.message);
   });
-  req.write(postDataStr);
+  reqe.write(postDataStr);
   req.end();
 })
 
