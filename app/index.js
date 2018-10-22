@@ -18,43 +18,15 @@ app.get('/api', function (req, res) {
   res.status(200).send('Hello World!');
 });
 
-
-
-
-
-
-
-
-
 app.post('/api', function (req, res) {
   console.log(req.body);
-  let postData = {
-    'token': BOT_USER_OAUTH_ACCESS_TOKEN,
-    'channel': req.body.event.channel,
-    'text': req.body.event.text
-  };
-  let postDataStr = JSON.stringify(postData);
-  let options = {
-    host: 'slack.com',
-    port: 80,
-    path: '/api/chat.postMessage',
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  };
-  let reqe = http.request(options, (res) => {
-    console.log('STATUS: ' + res.statusCode);
-    console.log('HEADERS: ' + JSON.stringify(res.headers));
-    res.setEncoding('utf8');
-    res.on('data', (chunk) => {
-      console.log('BODY: ' + chunk);
-    });
-  });
-  reqe.on('error', (e) => {
-    console.log('problem with request: ' + e.message);
-  });
-  reqe.write(postDataStr);
+  request.post({
+    url: 'https://slack.com/api/chat.postMessage',
+    form: { token: BOT_USER_OAUTH_ACCESS_TOKEN, channel: req.body.event.channel, text: 'aaa' }
+  },
+    function (err, httpResponse, body) {
+      console.log(body);
+    })
   req.end();
 })
 
