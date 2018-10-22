@@ -1,21 +1,24 @@
 {
   "name": "slack-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "For studying",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node app/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/show0317sw/slack-bot-study.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "show0317sw",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/show0317sw/slack-bot-study/issues"
   },
-  "homepage": "https://github.com/show0317sw/slack-bot-study#readme"
+  "homepage": "https://github.com/show0317sw/slack-bot-study#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
