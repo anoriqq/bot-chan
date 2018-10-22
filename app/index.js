@@ -20,6 +20,9 @@ app.get('/api', function (req, res) {
 
 app.post('/api', function (req, res) {
   console.log(req.body);
+  if(req.body.challenge !== undefined){
+    res.status(200).send(req.body.challenge).end();
+  }
   if (req.body.event.user == 'UAE9Z2JUF') {
     request.post({
       url: 'https://slack.com/api/chat.postMessage',
