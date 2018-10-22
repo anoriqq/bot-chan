@@ -33,7 +33,8 @@ app.post('/api', function(req, res){
   };
   res.end();
   request.post(options, function(error, response, body){
-    console.log(response);
+    console.log(response.body);
+    console.log(body);
   });
 })
 
