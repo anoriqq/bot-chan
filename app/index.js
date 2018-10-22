@@ -1,5 +1,6 @@
 'use strict';
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
 app.set('port', (process.env.PORT || 8000));
@@ -9,8 +10,9 @@ app.get('/api', function(req, res){
   res.status(200).send('Hello World!');
 });
 
-app.post('/', function(req, res){
+app.post('/api', function(req, res){
   console.log(req.body);
+  res.status(200).end();
 })
 
 app.listen(app.get('port'), function(){
