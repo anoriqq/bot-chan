@@ -1,7 +1,6 @@
 'use strict';
 const http = require('http');
 const server = http.createServer((req, res) => {
-  if(req.url === '/'){
     let body = '';
     req.on('data', (chunk) =>{
       body += chunk;
@@ -12,9 +11,9 @@ const server = http.createServer((req, res) => {
         'Content-Type': 'text/plain'
       });
       let challenge = JSON.parse(body).challenge;
-      res.end(challenge);
+      res.write(challenge);
+      res.end();
     });
-  }
 });
 const port = process.env.PORT || 8000;
 server.listen(port, () => {
