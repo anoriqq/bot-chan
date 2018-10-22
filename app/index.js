@@ -20,13 +20,15 @@ app.get('/api', function (req, res) {
 
 app.post('/api', function (req, res) {
   console.log(req.body);
-  request.post({
-    url: 'https://slack.com/api/chat.postMessage',
-    form: { token: BOT_USER_OAUTH_ACCESS_TOKEN, channel: req.body.event.channel, text: 'aaa' }
-  },
-    function (err, httpResponse, body) {
-      console.log(body);
-    })
+  if (req.body.event.user == 'UAE9Z2JUF') {
+    request.post({
+      url: 'https://slack.com/api/chat.postMessage',
+      form: { token: BOT_USER_OAUTH_ACCESS_TOKEN, channel: req.body.event.channel, text: req.body.event.text }
+    },
+      function (err, httpResponse, body) {
+        console.log(body);
+      })
+  }
   req.end();
 })
 
