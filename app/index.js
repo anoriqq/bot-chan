@@ -19,18 +19,16 @@ app.get('/api', function (req, res) {
 
 app.post('/api', function (req, res) {
   console.log(req.body);
-  let headers = {
-    'Content-Type': 'application/json'
-  }
   let options = {
     url: 'https://slack.com/api/chat.postMessage',
     method: 'POST',
-    headers: headers,
-    json: true,
-    form: {
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
       'channel': req.body.event.channel,
       'text': req.body.event.text
-    }
+    })
   }
   console.log(options);
   request(options, function (error, response, body) {
