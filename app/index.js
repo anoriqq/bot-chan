@@ -26,6 +26,7 @@ app.post('/api', function (req, res) {
       'content-type': 'application/json'
     },
     body: JSON.stringify({
+      'token': BOT_USER_OAUTH_ACCESS_TOKEN,
       'channel': req.body.event.channel,
       'text': req.body.event.text
     })
