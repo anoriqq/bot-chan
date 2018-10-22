@@ -3,6 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
+const OAUTH_ACCESS_TOKEN = process.env.OAUTH_ACCESS_TOKEN;
+const BOT_USER_OAUTH_ACCESS_TOKEN = process.env.BOT_USER_OAUTH_ACCESS_TOKEN;
+
 app.set('port', (process.env.PORT || 8000));
 app.use(express.static(__dirname + '/public'));
 
@@ -14,8 +17,14 @@ app.get('/api', function(req, res){
 });
 
 app.post('/api', function(req, res){
-  console.log(req.body);
-  res.status(200).end();
+  let body = req.body;
+  console.log(body);
+  let resObj = {
+    token: BOT_USER_OAUTH_ACCESS_TOKEN,
+    channel: body.event.channel,
+    text: body.event.text
+  };
+  res.status(200).json(resObj).end();
 })
 
 app.listen(app.get('port'), function(){
