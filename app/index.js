@@ -15,7 +15,7 @@ app.get('/api', function(req, res){
 
 app.post('/api', function(req, res){
   console.log(req.body);
-  res.status(200).end(req.body.challenge);
+  res.status(200).end();
 })
 
 app.listen(app.get('port'), function(){
