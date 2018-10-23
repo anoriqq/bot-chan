@@ -21,6 +21,8 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "form-urlencoded": "^3.0.0",
+    "node-fetch": "^2.2.0",
     "request": "^2.88.0"
   }
 }
