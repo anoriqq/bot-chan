@@ -20,7 +20,7 @@ router.post('/api', function (req, res, next) {
   if(req.body.challenge){
     console.log('ある');
   }else{
-    console.log('ある');
+    console.log('ない');
   }
   res.end();
 });
