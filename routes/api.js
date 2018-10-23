@@ -18,11 +18,10 @@ router.get('/api2', function (req, res, next) {
 router.post('/api', function (req, res, next) {
   console.log('POST: /api');
   if(req.body.challenge){
-    console.log('ある');
+    challenge(req, res);
   }else{
-    console.log('ない');
+    res.end();
   }
-  res.end();
 });
 
 router.post('/api2', function (req, res, next) {
