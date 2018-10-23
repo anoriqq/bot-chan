@@ -1,19 +1,28 @@
 'use strict';
 
-const challenge = require('../lib/challenge');
-const apiGET = require('../lib/apiGET');
 let router = require('./common');
 
-router.get('/api',function(req, res, next){
+const challenge = require('../lib/challenge');
+const apiGET = require('../lib/apiGET');
+
+router.get('/api', function (req, res, next) {
   console.log('GET: /api');
-  apiGET(req, res);
+  res.end();
 });
 
-router.post('/api', function(req, res, next){
+router.get('/api2', function (req, res, next) {
+  console.log('GET: /api2');
+  res.end();
+});
+
+router.post('/api', function (req, res, next) {
   console.log('POST: /api');
-  if(challenge in req.body){
-    challenge(req, res);
-  }
+  res.end();
+});
+
+router.post('/api2', function (req, res, next) {
+  console.log('POST: /api2');
+  res.end();
 });
 
 module.exports = router;
