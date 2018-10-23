@@ -1,1 +1,1 @@
-# slak-bot-study
+# bot-chan
