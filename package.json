@@ -1,0 +1,21 @@
+{
+  "name": "bot-chan",
+  "version": "1.0.0",
+  "description": "Herokuで動かすbotのリポジトリ｡練習用｡",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/show0317sw/bot-chan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/show0317sw/bot-chan/issues"
+  },
+  "homepage": "https://github.com/show0317sw/bot-chan#readme"
+}
