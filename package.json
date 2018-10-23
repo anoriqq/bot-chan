@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/show0317sw/bot-chan/issues"
   },
-  "homepage": "https://github.com/show0317sw/bot-chan#readme"
+  "homepage": "https://github.com/show0317sw/bot-chan#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "node-fetch": "^2.2.0"
+  }
 }
