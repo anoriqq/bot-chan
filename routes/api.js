@@ -17,7 +17,7 @@ router.get('/api2', function (req, res, next) {
 
 router.post('/api', function (req, res, next) {
   console.log('POST: /api');
-  if(challenge in req.body){
+  if(req.body.challenge){
     console.log('ある');
   }else{
     console.log('ある');
