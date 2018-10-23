@@ -16,7 +16,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // /apiにアクセスされたときrouterに渡す
-app.use('/', route);
+//app.use('/', route);
+app.post('/api', function(req, res, next){
+  console.log("POST: /api");
+  console.log(req.body);
+  res.end();
+});
 
 // 指定ポートでサーバーを起動｡完了後ログ出力
 app.listen(app.get('port'), function () {

@@ -17,7 +17,8 @@ router.get('/api2', function (req, res, next) {
 
 router.post('/api', function (req, res, next) {
   console.log('POST: /api');
-  challenge(req, res);
+  console.log(req.body);
+  res.end();
 });
 
 router.post('/api2', function (req, res, next) {
