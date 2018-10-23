@@ -23,10 +23,11 @@ router.post('/api', function (req, res, next) {
   if(req.body.challenge){
     // challengeキーがあるとき
     challenge(req, res);
-  }else if(!req.body.event.bot_id){
-    // botの投稿じゃないとき
+  }else if(!req.body.event.bot_id && req.body.event.type == 'message'){
+    // botの投稿じゃないとき && イベントタイプがmessageのとき
     channelMessage(req, res);
   }else{
+    console.log(req.body);
     res.status(200).end();
   }
 });
