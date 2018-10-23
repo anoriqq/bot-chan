@@ -44,7 +44,7 @@ app.post('/api', function (req, res) {
       method: "POST",
       body: params
     };
-    fetch(url, opt)
+    nodeFetch(url, opt)
       .then(res => res.text())
       .then(text => console.log(text))
       .catch(err => console.log(err));
