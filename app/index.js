@@ -48,6 +48,9 @@ app.post('/api', function (req, res) {
       .then(res => res.text())
       .then(text => console.log(text))
       .catch(err => console.log(err));
+    res.status(200).end();
+  }else{
+    res.status(200).end();
   }
 })
 
