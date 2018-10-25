@@ -22,5 +22,8 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "node-fetch": "^2.2.0"
+  },
+  "devDependencies": {
+    "dotenv": "^6.1.0"
   }
 }
