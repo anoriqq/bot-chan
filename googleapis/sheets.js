@@ -21,11 +21,4 @@ const sheets = google.sheets({
   auth: oauth2Client
 })
 
-sheets.spreadsheets.values.get({
-  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-  range: 'A2'
-}).then(res => {
-  console.log(res.data.values);
-}).catch(error => {
-  console.error(error);
-});
+module.exports = sheets;
