@@ -3,7 +3,7 @@
 let router = require('./common');
 
 const challenge = require('../lib/challenge');
-const messageRouter = require('../lib/messageRouter').default;
+const messageRouter = require('../lib/messageRouter');
 
 router.get('/api', function(_req, res){
   // "~/api" にGETが来たとき
