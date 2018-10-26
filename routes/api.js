@@ -25,7 +25,7 @@ router.post('/api', function(req, res){
     challenge(req, res);
   }else if(!req.body.event.bot_id && req.body.event.text){
     // botの投稿じゃないとき && textがあるとき textをメッセージルーターに渡す
-    messageRouter(req.body.event.text);
+    messageRouter(req, res, req.body.event.text);
   }else{
     console.log('例外のPOST');
     res.status(200).end();
