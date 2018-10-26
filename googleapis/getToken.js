@@ -12,21 +12,22 @@ const { promisify } = require('util');
 
 const { OAuth2Client } = require('google-auth-library');
 
-//promisifyでプロミス化
+// promisifyでプロミス化
 const writeFileAsync = promisify(fs.writeFile);
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive'];
 
-const main = async () => {
+const main = async() => {
   const credentials = JSON.parse(process.env.GOOGLE_CLIENT_TOKEN);
-  //認証
+
+  // 認証
   const clientSecret = credentials.installed.client_secret;
   const clientId = credentials.installed.client_id;
   const redirectUrl = credentials.installed.redirect_uris[0];
 
   const oauth2Client = new OAuth2Client(clientId, clientSecret, redirectUrl);
 
-  //get new token
+  // get new token
   const authUrl = oauth2Client.generateAuthUrl({
     access_type: 'offline',
     scope: SCOPES
@@ -37,8 +38,8 @@ const main = async () => {
   rl.question('Enter the code from that page here: ', (code) => {
     rl.close();
 
-    oauth2Client.getToken(code, async (err, token) => {
-      if (err) {
+    oauth2Client.getToken(code, async(err, token) => {
+      if (err){
         console.log('Error while trying to retrieve access token', err);
         return;
       }
@@ -47,7 +48,7 @@ const main = async () => {
 
       try {
         fs.mkdirSync(TOKEN_DIR);
-      } catch (err) {
+      } catch (err){
         if (err.code != 'EEXIST') throw err;
       }
 

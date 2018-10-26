@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', function(req, res, next){
+router.get('/', function(_req, res){
   console.log('GET: /');
   res.status(200).send('GET: /').end();
 });

@@ -3,11 +3,10 @@
 let router = require('./common');
 
 const challenge = require('../lib/challenge');
-const apiGET = require('../lib/apiGET');
 
-router.post('/api', function (req, res, next) {
+router.post('/api', function(req, res){
   console.log('POST: /api');
-  if (challenge in req.body) {
+  if (challenge in req.body){
     challenge(req, res);
   }
 });

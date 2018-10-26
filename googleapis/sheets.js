@@ -2,7 +2,6 @@
 
 require('dotenv').config();
 
-const fs = require('fs');
 const { google } = require('googleapis');
 const { OAuth2Client } = require('google-auth-library');
 
@@ -19,6 +18,6 @@ oauth2Client.credentials = JSON.parse(process.env.GOOGLE_SHEETS_API_KEY);
 const sheets = google.sheets({
   version: 'v4',
   auth: oauth2Client
-})
+});
 
 module.exports = sheets;
