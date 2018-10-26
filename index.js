@@ -15,6 +15,9 @@ app.set('port', (process.env.PORT || 8000));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// 静的ファイルをpublicに設置
+app.use(express.static('public'));
+
 // /apiにアクセスされたときrouterに渡す
 app.use('/', route);
 
