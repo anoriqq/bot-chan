@@ -27,7 +27,7 @@ router.post('/api', function (req, res, next) {
     // botの投稿じゃないとき && textがあるとき
     channelMessage(req, res);
   }else{
-    console.log(req.body);
+    console.log('例外のPOST');
     res.status(200).end();
   }
 });
