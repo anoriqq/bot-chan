@@ -5,19 +5,19 @@ let router = require('./common');
 const challenge = require('../lib/challenge');
 const channelMessage = require('../lib/channel_message');
 
-router.get('/api', function (req, res, next) {
+router.get('/api', function(_req, res){
   // "~/api" にGETが来たとき
   console.log('GET: /api');
   res.end();
 });
 
-router.get('/api2', function (req, res, next) {
+router.get('/api2', function(_req, res){
   // "~/api2" にGETが来たとき
   console.log('GET: /api2');
   res.end();
 });
 
-router.post('/api', function (req, res, next) {
+router.post('/api', function(req, res){
   // "~/api" にPOSTが来たとき
   console.log('POST: /api');
   if(req.body.challenge){
@@ -32,7 +32,7 @@ router.post('/api', function (req, res, next) {
   }
 });
 
-router.post('/api2', function (req, res, next) {
+router.post('/api2', function(_req, res){
   // "~/api2" にPOSTが来たとき
   console.log('POST: /api2');
   res.end();

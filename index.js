@@ -9,7 +9,7 @@ const express = require('express');
 const app = express();
 
 // Herokuのポートは8000番ポートでサーバーを構成
-app.set('port', (process.env.PORT || 8000));
+app.set('port', process.env.PORT || 8000);
 
 // コールバックボディーがjson､rulのときパースする
 app.use(bodyParser.json());
@@ -22,6 +22,6 @@ app.use(express.static('public'));
 app.use('/', route);
 
 // 指定ポートでサーバーを起動｡完了後ログ出力
-app.listen(app.get('port'), function () {
+app.listen(app.get('port'), function(){
   console.info('Listening on ' + app.get('port'));
 });
