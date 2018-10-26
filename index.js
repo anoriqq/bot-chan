@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // 静的ファイルをpublicに設置
 app.use(express.static('public'));
 
-// /apiにアクセスされたときrouterに渡す
+// アクセスされたときrouterに渡す
 app.use('/', route);
 
 // 指定ポートでサーバーを起動｡完了後ログ出力
