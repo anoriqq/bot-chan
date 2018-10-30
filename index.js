@@ -5,6 +5,7 @@
 // モジュールの読み込み
 const bodyParser = require('body-parser');
 const route = require('./routes/index');
+const timeSignal = require('./lib/timeSignal');
 const express = require('express');
 const app = express();
 
@@ -25,3 +26,6 @@ app.use('/', route);
 app.listen(app.get('port'), function(){
   console.info('Listening on ' + app.get('port'));
 });
+
+// Dynoがsleepしないようにする
+timeSignal();

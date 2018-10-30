@@ -23,9 +23,12 @@ router.post('/api', function(req, res){
   if(req.body.challenge){
     // challengeキーがあるとき
     challenge(req, res);
-  }else if(!req.body.event.bot_id && req.body.event.text){
-    // botの投稿じゃないとき && textがあるとき textをメッセージルーターに渡す
+  }else if(!req.body.event.bot_id && req.body.event.text && req.body.event.channel != 'GDPK7CBHR'){
+    // botの投稿じゃないとき && textがあるとき && 時報チャンネルじゃないとき textをメッセージルーターに渡す
     messageRouter(req, res, req.body.event.text);
+  }else if(req.body.event.channel == 'GDPK7CBHR'){
+    console.log('時報');
+    res.status(200).end();
   }else{
     console.log('例外のPOST');
     res.status(200).end();
